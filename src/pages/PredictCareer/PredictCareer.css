@@ -1,0 +1,126 @@
+/* PredictCareer.css */
+
+:root {
+  --primary-color: #007aff;
+  --secondary-color: #6200ee;
+  --background-color: #ffffff;
+  --card-color: #ffffff;
+  --text-color: #000000;
+  --border-color: #e0e0e0;
+  --input-bg: #f0f0f0;
+}
+
+body.dark-mode {
+  --primary-color: #00c853;
+  --secondary-color: #bb86fc;
+  --background-color: #121212;
+  --card-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --border-color: #333333;
+  --input-bg: #2b2b2b;
+}
+
+.predict-career-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: var(--card-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px var(--primary-color);
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-actions button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background-color: var(--primary-color);
+  transition: background-color 0.3s ease;
+  min-width: 120px;
+}
+
+.form-actions button:hover {
+  background-color: var(--secondary-color);
+}
+
+.form-actions .back-button {
+  background-color: var(--secondary-color);
+}
+
+.form-actions .back-button:hover {
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  .predict-career-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+}

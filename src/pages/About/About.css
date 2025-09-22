@@ -1,0 +1,82 @@
+.about-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 80px); /* Adjust for Navbar/Footer */
+  padding: 40px 20px;
+  background-color: var(--background-color);
+}
+
+.about-content {
+  max-width: 800px;
+  width: 100%;
+  padding: 40px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.about-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.about-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-details {
+  margin-top: 40px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+}
+
+.about-details h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.about-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-details li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.about-details li strong {
+  color: var(--primary-color);
+}
+
+.about-details .team-name{
+  font-weight: bold;
+}
+
+/* Existing code... */
+
+@media (max-width: 768px) {
+  .about-content {
+    padding: 20px;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+  }
+  
+  .about-details h3 {
+    font-size: 1.2rem;
+  }
+}

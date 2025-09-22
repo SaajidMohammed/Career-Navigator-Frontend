@@ -1,0 +1,94 @@
+.career-details-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.details-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details-section {
+  margin-top: 30px;
+}
+
+.details-section h3 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.skill-gap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--input-background);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.skill-name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.progress-bar-container {
+  width: 50%;
+  height: 10px;
+  background-color: var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.5s ease;
+}
+
+.roadmap-list {
+  list-style: none;
+  padding: 0;
+  border-left: 2px solid var(--border-color);
+  position: relative;
+}
+
+.roadmap-step {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.roadmap-step::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  border: 2px solid var(--background-color);
+}

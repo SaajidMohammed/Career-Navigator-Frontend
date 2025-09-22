@@ -1,0 +1,88 @@
+.dashboard-container {
+    padding: 40px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: calc(100vh - 80px);
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-color);
+}
+
+.dashboard-card {
+    background: var(--card-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.dashboard-heading {
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.result-section {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.section-heading {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-item {
+    background: var(--input-background);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.dashboard-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.predictions-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.no-recommendations-message {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+@media (max-width: 650px) {
+    .predictions-list {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .dashboard-container {
+        padding: 20px 10px;
+    }
+}

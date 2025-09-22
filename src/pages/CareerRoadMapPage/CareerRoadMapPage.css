@@ -1,0 +1,51 @@
+.roadmap-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: var(--card-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.roadmap-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.roadmap-description {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.roadmap-list {
+  padding-left: 20px;
+}
+
+.roadmap-step {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  background-color: var(--input-background);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* Existing code... */
+
+@media (max-width: 768px) {
+  .roadmap-container {
+    padding: 20px;
+  }
+
+  .roadmap-title {
+    font-size: 1.5rem;
+  }
+
+  .roadmap-step {
+    font-size: 0.9rem;
+  }
+}
