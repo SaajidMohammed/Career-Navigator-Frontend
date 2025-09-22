@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './Dashboardpage.css';
+import './DashboardPage.css';
 
 const DashboardPage = () => {
   const location = useLocation();
