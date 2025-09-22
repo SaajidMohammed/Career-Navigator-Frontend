@@ -23,7 +23,7 @@ const CareerRoadmapPage = () => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const response = await axios.get(`http://localhost:5000/api/predictions/${id}`, config);
+        const response = await axios.get(`https://career-navigator-api-rptb.onrender.com/api/predictions/${id}`, config);
         setDetails(response.data);
         setIsLoading(false);
       } catch (error) {
