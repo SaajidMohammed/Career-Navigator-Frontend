@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/predictions'; 
+const API_URL = 'https://career-navigator-api-rptb.onrender.com/api/predictions'; 
 
 const getPrediction = async (predictionData, token) => {
   const headers = {
