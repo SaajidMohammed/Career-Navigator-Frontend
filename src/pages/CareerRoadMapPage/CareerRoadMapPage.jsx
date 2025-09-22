@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext.jsx';
 import axios from 'axios';
-import './CareerRoadmapPage.css';
+import './CareerRoadMapPage.css';
 
 const CareerRoadmapPage = () => {
   const { id } = useParams();
