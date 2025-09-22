@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext.jsx";
 import predictionService from "../../api/predictionApi.jsx";
@@ -222,6 +222,9 @@ const PredictCareerPage = () => {
       alert("Failed to get a prediction. " + (error.response?.data?.message || error.message));
     }
   };
+  useEffect(() => {
+  console.log("✅ PredictCareer component mounted");
+}, []);
 
   return (
     <div className="predict-career-container">
