@@ -7,7 +7,7 @@ const getPrediction = async (predictionData, token) => {
     'Content-Type': 'application/json',
   };
   if (token) {
-    headers['authorization'] = `Bearer ${token}`;
+    headers['Authorization'] = `Bearer ${token}`;
   }
   try {
     const response = await axios.post(API_URL, predictionData, { headers });
