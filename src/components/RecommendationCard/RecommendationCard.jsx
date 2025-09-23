@@ -11,7 +11,7 @@ const RecommendationCard = ({ recommendation }) => {
       <div className="skills-section">
         <h3>Skills to Learn</h3>
         <ul className="skills-list">
-          {/* Defensive check for skillsToLearn array */}
+          {/* ✅ FIX: Changed recommendation.skills to recommendation.skillsToLearn */}
           {Array.isArray(recommendation.skillsToLearn) && recommendation.skillsToLearn.map((skill, index) => (
             <li key={index}>{skill}</li>
           ))}
