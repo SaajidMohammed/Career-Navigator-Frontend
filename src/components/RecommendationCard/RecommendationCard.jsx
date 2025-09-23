@@ -15,24 +15,12 @@ const RecommendationCard = ({ recommendation }) => {
       <h3 className="card-title">{recommendation.careerPath}</h3>
       <p className="card-description">{recommendation.description}</p>
       
-      {/* --- Section for Skills to Learn --- */}
       <div className="skills-section">
         <h4>Skills to Develop</h4>
         <ul>
-          {/* Safely checks if skillsToLearn exists and is an array before mapping */}
+          {/* ✅ FIX: Changed recommendation.skills to recommendation.skillsToLearn */}
           {Array.isArray(recommendation.skillsToLearn) && recommendation.skillsToLearn.map((skill, index) => (
             <li key={index}>{skill}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* --- Section for Career Roadmap --- */}
-      <div className="roadmap-section">
-        <h4>Career Roadmap</h4>
-        <ul>
-          {/* Safely checks if roadmap exists and is an array before mapping */}
-          {Array.isArray(recommendation.roadmap) && recommendation.roadmap.map((step, index) => (
-            <li key={index}>{step}</li>
           ))}
         </ul>
       </div>
