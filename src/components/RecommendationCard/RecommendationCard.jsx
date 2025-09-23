@@ -1,22 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './RecommendationCard.css';
 
 const RecommendationCard = ({ recommendation }) => {
-  const navigate = useNavigate();
-
   return (
     <div className="recommendation-card">
-      <h3 className="card-title">{recommendation.careerPath}</h3>
-      <p className="card-description">{recommendation.description}</p>
-      <div className="card-buttons">
-        {/* Update the ID to '_id' */}
-        <button onClick={() => navigate(`/skill-gap/${recommendation._id}`)} className="details-button">
-          View Skill Gap
-        </button>
-        <button onClick={() => navigate(`/career-roadmap/${recommendation._id}`)} className="details-button">
-          View Roadmap
-        </button>
+      <h2>{recommendation.careerPath}</h2>
+      <p>{recommendation.description}</p>
+      <div className="skills-section">
+        <h3>Skills to Learn</h3>
+        <ul className="skills-list">
+          {/* ✅ FIX: Changed recommendation.skills to recommendation.skillsToLearn */}
+          {recommendation.skillsToLearn.map((skill, index) => (
+            <li key={index}>{skill}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="card-actions">
+        <Link to={`/roadmap/${recommendation._id}`} className="btn-roadmap">View Roadmap</Link>
+        <Link to={`/skill-gap/${recommendation._id}`} className="btn-skill-gap">Analyze Skill Gap</Link>
       </div>
     </div>
   );
