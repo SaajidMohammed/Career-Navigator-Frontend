@@ -1,79 +1,39 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+import RecommendationCard from '../../components/RecommendationCard/RecommendationCard';
 import './DashboardPage.css';
 
 const DashboardPage = () => {
+  const { user } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // ✅ FIX: Use optional chaining (?.) to safely access predictionData.
+  // This prevents a crash if location.state is null or undefined.
   const predictionData = location.state?.predictionData;
 
-  const handleNewPrediction = () => {
-    navigate('/predict-career');
-  };
+  const [recommendations, setRecommendations] = useState(predictionData ? [predictionData] : []);
 
-  if (!predictionData) {
-    return (
-      <div className="dashboard-container">
-        <div className="dashboard-card">
-          <h2 className="dashboard-heading">No Prediction Found</h2>
-          <p>Please go back to the prediction page to get your career analysis.</p>
-          <button onClick={handleNewPrediction} className="dashboard-button">
-            New Prediction
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const {
-    careerPath = 'Not specified',
-    description = 'No description available.',
-    skillGap = [],
-    roadmap = [],
-  } = predictionData;
+  useEffect(() => {
+    if (!user) {
+      navigate('/auth');
+    }
+    // You could add logic here in the future to fetch all past recommendations
+    // from your API if no new predictionData is passed in the navigation state.
+  }, [user, navigate]);
 
   return (
     <div className="dashboard-container">
-      <div className="dashboard-card">
-        <h2 className="dashboard-heading">Your Career Analysis</h2>
-
-        <div className="result-section">
-          <h3 className="section-heading">Predicted Career Path:</h3>
-          <p>{careerPath}</p>
-          <p>{description}</p>
-        </div>
-
-        <div className="result-section">
-          <h3 className="section-heading">Identified Skill Gaps:</h3>
-          {Array.isArray(skillGap) && skillGap.length > 0 ? (
-            <ul className="list">
-              {skillGap.map((gap, index) => (
-                <li key={index} className="list-item">{gap}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No skill gaps identified.</p>
-          )}
-        </div>
-
-        <div className="result-section">
-          <h3 className="section-heading">Your Recommended Roadmap:</h3>
-          {Array.isArray(roadmap) && roadmap.length > 0 ? (
-            <ol className="list">
-              {roadmap.map((step, index) => (
-                <li key={index} className="list-item">{step}</li>
-              ))}
-            </ol>
-          ) : (
-            <p>No roadmap steps provided.</p>
-          )}
-        </div>
-
-        <div className="dashboard-actions">
-          <button onClick={handleNewPrediction} className="dashboard-button">
-            New Prediction
-          </button>
-        </div>
+      <h1>Welcome to your Dashboard, {user?.name || 'User'}!</h1>
+      <div className="recommendations-list">
+        {recommendations.length > 0 ? (
+          recommendations.map((rec) => (
+            <RecommendationCard key={rec._id} recommendation={rec} />
+          ))
+        ) : (
+          <p>No career recommendations yet. Go to the prediction page to get started!</p>
+        )}
       </div>
     </div>
   );
