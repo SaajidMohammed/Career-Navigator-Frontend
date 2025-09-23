@@ -1,37 +1,49 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './RecommendationCard.css';
 
 const RecommendationCard = ({ recommendation }) => {
+  const navigate = useNavigate();
+
+  // This check prevents the component from crashing if recommendation data is missing.
+  if (!recommendation) {
+    return null; 
+  }
+
   return (
     <div className="recommendation-card">
-      <h2>{recommendation.careerPath}</h2>
-      <p>{recommendation.description}</p>
+      <h3 className="card-title">{recommendation.careerPath}</h3>
+      <p className="card-description">{recommendation.description}</p>
       
+      {/* --- Section for Skills to Learn --- */}
       <div className="skills-section">
-        <h3>Skills to Learn</h3>
-        <ul className="skills-list">
-          {/* ✅ FIX: Changed recommendation.skills to recommendation.skillsToLearn */}
+        <h4>Skills to Develop</h4>
+        <ul>
+          {/* Safely checks if skillsToLearn exists and is an array before mapping */}
           {Array.isArray(recommendation.skillsToLearn) && recommendation.skillsToLearn.map((skill, index) => (
             <li key={index}>{skill}</li>
           ))}
         </ul>
       </div>
 
+      {/* --- Section for Career Roadmap --- */}
       <div className="roadmap-section">
-        <h3>Roadmap</h3>
-        <ul className="roadmap-list">
-          {/* ✅ FIX 1: Add a check to ensure roadmap is an array before mapping */}
-          {Array.isArray(recommendation.roadmap) && recommendation.roadmap.map((item, index) => (
-            // ✅ FIX 2: Change "item.title" to just "item"
-            <li key={index}>{item}</li>
+        <h4>Career Roadmap</h4>
+        <ul>
+          {/* Safely checks if roadmap exists and is an array before mapping */}
+          {Array.isArray(recommendation.roadmap) && recommendation.roadmap.map((step, index) => (
+            <li key={index}>{step}</li>
           ))}
         </ul>
       </div>
 
-      <div className="card-actions">
-        <Link to={`/roadmap/${recommendation._id}`} className="btn-roadmap">View Roadmap</Link>
-        <Link to={`/skill-gap/${recommendation._id}`} className="btn-skill-gap">Analyze Skill Gap</Link>
+      <div className="card-buttons">
+        <button onClick={() => navigate(`/skill-gap/${recommendation._id}`)} className="details-button">
+          View Skill Gap
+        </button>
+        <button onClick={() => navigate(`/career-roadmap/${recommendation._id}`)} className="details-button">
+          View Roadmap
+        </button>
       </div>
     </div>
   );
